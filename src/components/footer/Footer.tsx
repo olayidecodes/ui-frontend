@@ -1,8 +1,16 @@
+import './Footer.scss'
+import { FaTwitterSquare, FaLinkedin, FaFacebookSquare } from 'react-icons/fa'
+
 const Footer = () => {
   return (
-    <div>
-      Footer
-    </div>
+    <nav className="container">
+        <img src="/logo.webp" alt='University of Ibadan'/>
+        <div className="links">
+            <a className="link" href="twitter.com"><FaTwitterSquare  /></a>
+            <a className="link" href="https://www.linkedin.com/"><FaLinkedin /></a>
+            <a className="link" href=""><FaFacebookSquare /></a>
+        </div>
+    </nav>
   )
 }
 
