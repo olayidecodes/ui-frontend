@@ -1,3 +1,4 @@
+import Countdown from '../countdown/CountDown'
 import './Banner.scss'
 
 const Banner = () => {
@@ -11,7 +12,7 @@ const Banner = () => {
                 <button className="btn" >Donate</button>
             </div>
             <div className="countdown">
-
+                <Countdown />
             </div>
             <div className="lead section">
                 <h1>LEAD THE WAY</h1>

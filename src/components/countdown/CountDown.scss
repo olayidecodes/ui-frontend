@@ -1,0 +1,19 @@
+.countdown {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+  }
+  
+  .countdown-item {
+    text-align: center;
+  }
+  
+  .countdown-value {
+    font-weight: bold;
+    font-size: 36px;
+  }
+  
+  .countdown-label {
+    font-size: 16px;
+  }
+  
