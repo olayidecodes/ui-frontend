@@ -1,0 +1,47 @@
+.DonationCon{
+    background: #F6F8FE;
+    padding: 5rem;
+}
+
+.head-Con{
+    text-align: center;
+}
+
+.head-Con p{
+    margin: 1rem auto;
+    margin-inline: auto;
+    max-width: 55%;
+    line-height: 30px;
+}
+
+.measureContainer{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    /* border: 2px solid; */
+    max-width: 100%;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.btns{
+    display: grid;
+    place-items: center;
+}
+
+button{
+    padding: 1rem 3em;
+    border-radius: 10px;
+    background: #234CEB;
+    box-shadow: 0px 18px 43px 4px rgba(35, 76, 235, 0.21);
+    border: none;
+    margin-top: 1rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+/* background: url(https://i.imgur.com/DLD3N2t.png); */
