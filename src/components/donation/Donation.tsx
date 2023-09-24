@@ -1,9 +1,18 @@
 import { FaArrowRight } from "react-icons/fa";
 import "./donationStyle.css";
 import LisThermo from "./Thermo";
-import React from 'react';
+import React, {useState} from 'react';
+import Popup from './Popup';
 
-const Donation = () => {
+
+
+const Donation: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="DonationCon">
       <div className="head-Con">
@@ -16,10 +25,12 @@ const Donation = () => {
       </div>
 
       <LisThermo/>
-      
+
       <div className="btns">
-        <button >View All <FaArrowRight style={{marginLeft: "0.5rem"}}/></button>
+        <button onClick={togglePopup}>View All <FaArrowRight style={{marginLeft: "0.5rem"}}/></button>
+        <Popup isOpen={isOpen} onClose={togglePopup} />
       </div>
+      
     </div>
   )
 }

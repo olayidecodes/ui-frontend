@@ -14,14 +14,10 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0",
-<<<<<<< HEAD
     "react-slick": "^0.29.0",
+    "react-thermometer-component": "^1.0.1",
     "sass": "^1.67.0",
     "slick-carousel": "^1.8.1"
-=======
-    "react-thermometer-component": "^1.0.1",
-    "sass": "^1.67.0"
->>>>>>> 6b1fa47 (started the donation component)
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
