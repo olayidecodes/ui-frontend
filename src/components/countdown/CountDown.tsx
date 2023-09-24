@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Countdown.scss'; // Import your SCSS file for styling
+import './Countdown.scss';
 
 const Countdown = () => {
 	const targetDate: Date = new Date('2023-11-14T00:00:00Z'); // Set your target date and time
@@ -45,7 +45,7 @@ const Countdown = () => {
         <span className="countdown-value">{timeLeft.minutes}</span>
         <span className="countdown-label">Minutes</span>
       </div>
-      <div className="countdown-item">
+	  <div className="countdown-item">
         <span className="countdown-value">{timeLeft.seconds}</span>
         <span className="countdown-label">Seconds</span>
       </div>

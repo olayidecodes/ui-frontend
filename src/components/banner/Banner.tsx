@@ -1,4 +1,6 @@
 import Countdown from '../countdown/CountDown'
+import { BsCalendarDay } from 'react-icons/bs'
+import { CiLocationOn } from 'react-icons/ci'
 import './Banner.scss'
 
 const Banner = () => {
@@ -11,7 +13,20 @@ const Banner = () => {
                 <p>Commemorate 75 years of excellence at the University of Ibadan. Join fellow alumni in shaping the future. Contribute to our crowdfunding campaign today!</p>
                 <button className="btn" >Donate</button>
             </div>
-            <div className="countdown">
+            <div className="countdown_box">
+                <div className="text">
+                    <h1>UI 75TH ANNIVERSARY</h1>
+                    <div className="box">
+                        <div className="info">
+                            <BsCalendarDay className='icon' />
+                            <p>November 14th, 2023</p>
+                        </div>
+                        <div className="info">
+                            <CiLocationOn className='icon' />
+                            <p>University of Ibadan, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
                 <Countdown />
             </div>
             <div className="lead section">

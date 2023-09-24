@@ -23,7 +23,7 @@ const Navbar = () => {
   
   return (
     <nav className="container">
-        <img src="/logo.webp" width={51} height={62} alt='University of Ibadan'/>
+        <img src="/unibadan-logo.png" width={51} height={62} alt='University of Ibadan'/>
         <div className="links">
             <a className="link_other" href="https://www.ui.edu.ng/">Homepage</a>
             
