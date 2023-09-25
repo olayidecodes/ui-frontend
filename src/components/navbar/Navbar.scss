@@ -1,8 +1,11 @@
 .container {
-    padding: 1rem 0;
+    top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
 }
 
 .menu {
@@ -30,51 +33,51 @@
     /* box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.09); */
 }
 
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+// .popup {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: rgba(0, 0, 0, 0.8);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
 
-  .small_links {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    background-color: var(--color-white);
-    transition: 0.5s ease;
-    flex-direction: column;
-    z-index: 5;
-  }
+//   .small_links {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 2rem;
+//     align-items: center;
+//     justify-content: center;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     padding: 2rem;
+//     background-color: var(--color-white);
+//     transition: 0.5s ease;
+//     flex-direction: column;
+//     z-index: 5;
+//   }
 
-  .close {
-    color: var(--color-golden);
-    font-size: 20px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-  }
+//   .close {
+//     color: var(--color-golden);
+//     font-size: 20px;
+//     position: absolute;
+//     top: 20px;
+//     right: 20px;
+//     cursor: pointer;
+//   }
 
-  .links_box {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
+//   .links_box {
+//     margin-top: 2.5rem;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1rem;
+//     text-align: center;
+//   }
 
   @media screen and (max-width: 600px) {
     .menu {

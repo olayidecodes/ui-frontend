@@ -1,0 +1,31 @@
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .countdown-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .countdown-value {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #234CEB;
+            padding: 1rem;
+            width: 4.5rem;
+            height: 4.5rem;
+            color: var(--color-white);
+            font-size: 2rem;
+        }
+
+        .countdown-label {
+            padding-top: .3rem;
+            font-size: .9rem;
+        }
+    }
+}
