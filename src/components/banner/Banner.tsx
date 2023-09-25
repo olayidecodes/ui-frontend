@@ -30,7 +30,7 @@ const Banner = () => {
                 <Countdown />
             </div>
             <div className="lead section">
-                <h1>LEAD THE WAY</h1>
+                <h1 className='section__title'>LEAD THE WAY</h1>
                 <p>Join us, proud alumni of the University of Ibadan, as we celebrate 75 years of academic excellence and chart a bold course for the future. Your support in this crowdfunding campaign will ensure that our alma mater continues to inspire and educate generations to come. Lead the way!</p>
             </div>
         </div>
