@@ -1,0 +1,15 @@
+.goalContainer{
+    max-width: 100%;
+    min-height: 30rem;
+    background: #F6F8FE;
+    padding: 5rem;
+}
+
+.toptext{
+    text-align: center;
+}
+
+.toptext p{
+    max-width: 43rem;
+    margin: 1rem auto;
+}
