@@ -3,20 +3,40 @@
     min-height: 30rem;
     background: #F6F8FE;
     padding: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.toppat{
+    position: absolute;
+    top: -5px;
+    right: 35%;
+}
+
+.conpat{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40rem;
 }
 
 .toptext{
     text-align: center;
 }
 
+.toptext h1{
+    font-size: 2.5rem;
+}
+
 .toptext p{
-    max-width: 43rem;
+    max-width: 60rem;
     margin: 1rem auto;
+    font-size: 1.4rem;
 }
 
 .donationBar{
-    height: 5rem;
-    width: 37%;
+    height: 6rem;
+    width: 60%;
     border-radius: 10rem;
     margin: 3rem auto;
     background-color: #ffffff;
@@ -53,6 +73,11 @@
     padding: 2px 6px;
     border-radius: 3px;
     background-color: blue;
+}
+
+.raised{
+    margin: 1rem auto;
+    text-align: center;
 }
 
 .raised span{

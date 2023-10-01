@@ -7,10 +7,14 @@ const GoalDonation = () => {
 
   return (
     <div className="goalContainer">
+      <img src="/toppat.png" alt="top pattern" className="toppat"/>
+      <img src="/cornerpat.png" alt="cornerppattern" className="conpat"/>
         <div className="toptext">
             <h1>DONATION GOAL</h1>
             <p>Our goal is to reach about Two Hundred million dollars ($200,000,00.00) 
-                before the start of the University’s 75th Anniversary.</p>
+                before the start of the University’s 75th Anniversary.
+            </p>
+        </div>
 
             <div className="donationBar">
               <span className="donate-per">
@@ -19,9 +23,8 @@ const GoalDonation = () => {
             </div>
 
             <div className="raised">
-              <span>{amountRaised} </span>raised of <span>{goal}</span>
+              <span>{amountRaised} </span>raised of <span> {goal}</span>
             </div>
-        </div>
     </div>
   )
 }
