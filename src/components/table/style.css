@@ -1,0 +1,24 @@
+  .custom-table {
+    border-collapse: separate;
+    border-spacing: 0 1rem; /* Adjust the second value for the desired space between rows */
+    width: 90%;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 8px;
+    /* text-align: left; */
+  }
+  
+  /* .custom-table th {
+    background-color: #f2f2f2;
+  } */
+  
+  .custom-table td {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
