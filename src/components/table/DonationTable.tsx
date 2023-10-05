@@ -21,21 +21,21 @@ const DonationTable = () => {
         <table className="custom-table">
           <thead>
             <tr>
-              {/* <th>S/N</th> */}
+              <th>S/N</th>
               <th>Hall Of Residence</th>
               <th>Amount Donated</th>
               <th>Number Of Donations</th>
-              <th>Position</th>
+              {/* <th>Position</th> */}
             </tr>
           </thead>
           <tbody>
             {data.map((row) => (
               <tr key={row.id}>
-                {/* <td>{row.id}</td> */}
+                <td>{row.id}</td>
                 <td>{row.hallName}</td>
                 <td>{row.amountDonated}</td>
                 <td>{row.numOfDonation}</td>
-                <td>{row.position}</td>
+                {/* <td>{row.position}</td> */}
               </tr>
             ))}
           </tbody>
