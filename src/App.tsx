@@ -3,8 +3,6 @@ import "./App.scss"
 import Footer from "./components/footer/Footer";
 import Banner from "./components/banner/Banner";
 import Gallery from "./components/gallery/Gallery";
-import Donate from "./components/donate/Donate";
-import Donation from "./components/donation/Donation";
 
 function App() {
   return (
@@ -12,9 +10,10 @@ function App() {
       <div className="main__container">
         <Navbar />
         <Banner />
+        <GoalDonation/>
         <Donate />
-        <Donation/>
         <Gallery />
+        <Donation/>
         <Footer />
       </div>
     </div>

@@ -10,13 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@esbuild/darwin-x64": "^0.19.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0",
     "react-slick": "^0.29.0",
-    "react-toastify": "^9.1.3",
     "react-thermometer-component": "^1.0.1",
+    "react-toastify": "^9.1.3",
     "sass": "^1.67.0",
     "slick-carousel": "^1.8.1"
   },
