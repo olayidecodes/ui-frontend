@@ -45,10 +45,10 @@ const Countdown = () => {
         <span className="countdown-value">{timeLeft.minutes}</span>
         <span className="countdown-label">Minutes</span>
       </div>
-	  <div className="countdown-item">
+	    {/* <div className="countdown-item">
         <span className="countdown-value">{timeLeft.seconds}</span>
         <span className="countdown-label">Seconds</span>
-      </div>
+      </div> */}
     </div>
   );
 };

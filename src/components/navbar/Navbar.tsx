@@ -23,12 +23,11 @@ const Navbar = () => {
   
   return (
     <nav className="container">
-        <img src="/unibadan-logo.png" width={51} height={62} alt='University of Ibadan'/>
+        <img src="/unibadan-logo.png" className='logo' width={51} height={62} alt='University of Ibadan'/>
         <div className="links">
-            <a className="link_other" href="https://www.ui.edu.ng/">Homepage</a>
-            
+            <a className="link" href="https://www.ui.edu.ng/">Homepage</a> 
         </div>
-        {/* {isPopupOpen && <Popup onClose={closePopup}/>} */}
+        {/* {isPopupOpen && <Popup onClose={closePopup}/>}
         <AiOutlineMenu className="menu" onClick={() => setToggle(!toggle)}/>
 
         {toggle && 
@@ -40,9 +39,9 @@ const Navbar = () => {
         <a onClick={openPopup} className="link_other" href="">Donate</a>
         
         </div>
-        {/* {isPopupOpen && <Popup onClose={closePopup}/>} */}
-    </div>
-        }
+        {isPopupOpen && <Popup onClose={closePopup}/>}
+        </div>
+        } */}
     </nav>
   )
 }
