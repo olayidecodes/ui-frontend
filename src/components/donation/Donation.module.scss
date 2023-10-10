@@ -1,0 +1,77 @@
+@import '../../shared/shared';
+
+.donation-container {
+  @include column-flex();
+  gap: toRem(39);
+  margin: toRem(60) toRem(36) 0;
+}
+
+.content {
+  @include column-centered();
+  gap: toRem(8);
+}
+
+.title {
+  color: #000;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: toRem(19);
+  font-style: normal;
+  font-weight: 900;
+  line-height: toRem(19);
+}
+
+.desc {
+  color: #000;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: toRem(16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: toRem(19);
+}
+
+.donation {
+  padding: toRem(67) 0;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-container {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.test-tube__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: auto;
+  align-items: end;
+  gap: 0 1rem;
+}
+
+.test-tube {
+  position: relative;
+  @include column-centered();
+  gap: toRem(9);
+  padding: 0 0 toRem(20);
+}
+
+.tube-title {
+  position: absolute;
+  bottom: -12%;
+  width: 100%;
+  color: #000;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: toRem(9);
+  font-style: normal;
+  font-weight: 400;
+  line-height: toRem(10.132);
+}

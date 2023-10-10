@@ -1,0 +1,20 @@
+@import '../../../shared/shared';
+
+.btn {
+  @include centered();
+  gap: toRem(8);
+  color: #fff;
+  text-align: center;
+  font-family: 'Sora', sans-serif;
+  font-size: toRem(9);
+  font-style: normal;
+  font-weight: 700;
+  line-height: toRem(9); /* 100% */
+  background-color: var(--dark-blue);
+  padding: toRem(10) toRem(20);
+  border: none;
+  border-radius: toRem(50);
+  align-self: center;
+  outline: none;
+  margin: 5rem auto 0;
+}

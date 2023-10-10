@@ -1,0 +1,22 @@
+@import '../../../shared/shared';
+
+.ruler {
+  position: absolute;
+  right: calc(-18 / 43 * 100%);
+
+  @include column-flex();
+  justify-content: space-between;
+}
+
+.mark,
+.thick-mark {
+  width: toRem(6);
+  max-height: toRem(1);
+  background-color: rgb(187, 187, 187);
+  flex-shrink: 0;
+}
+
+.thick-mark {
+  width: toRem(12);
+  max-height: toRem(3);
+}

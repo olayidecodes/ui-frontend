@@ -1,0 +1,13 @@
+.shadow {
+  background-color: #e2e2e2;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 110%;
+  box-sizing: border-box;
+
+  @supports (aspect-ratio: 43/6) {
+    aspect-ratio: 43/6;
+    height: auto;
+  }
+}

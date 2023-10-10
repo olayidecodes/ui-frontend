@@ -1,0 +1,114 @@
+@import '../../../shared/shared';
+
+$gap: 0.3;
+$width: 43 + 10;
+
+.container {
+  @include centered();
+  position: relative;
+  width: toRem($width);
+
+  @supports (aspect-ratio: calc(($width / 140))) {
+    aspect-ratio: calc(($width) / 140);
+    height: auto;
+  }
+}
+
+.test-tube {
+  @include column-centered();
+  position: relative;
+  width: min-content;
+  transform-origin: center center;
+}
+
+.cylindar,
+.cylindar-border {
+  @include centered();
+  position: relative;
+  top: toRem(2);
+  width: toRem(16.87);
+  height: toRem(25.1 + 115.12 - 43.29);
+  background-color: #e9f4f3;
+  border-top-right-radius: toRem(50);
+  border-top-left-radius: toRem(50);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cylindar-border {
+  position: absolute;
+  border: toRem(5) solid #cadddc;
+  box-sizing: content-box;
+  top: toRem(-3);
+  z-index: 0;
+}
+
+.cylindar-fill {
+  position: absolute;
+  bottom: 0;
+  background-color: #cc3a48;
+  width: toRem(16.87 + 5);
+  height: 50%;
+}
+
+.sphere,
+.sphere-border {
+  @include centered();
+  position: relative;
+  width: toRem(43.29);
+  height: toRem(43.29);
+  background-color: #e9f4f3;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.sphere-fill {
+  width: toRem(43.29 + 5);
+  background-color: #cc3a48;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+}
+
+.sphere-border {
+  position: absolute;
+  border: toRem(5) solid #cadddc;
+  box-sizing: content-box;
+  bottom: toRem(-5);
+}
+
+.cylindar-shadow,
+.sphere-shadow {
+  background-color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+}
+
+.cylindar-shadow {
+  right: calc(5.12 / 16.87 * 100%);
+  top: 0;
+}
+
+.sphere-shadow {
+  right: 16%;
+  bottom: 15%;
+}
+
+.left-cylindar__shadow {
+  width: toRem(4);
+  height: toRem(60.51 + 16.15);
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: toRem(8.96);
+  right: toRem(5.13);
+  border-radius: toRem(50);
+}
+
+.circle-shadow {
+  width: toRem(5);
+  height: toRem(5);
+  position: absolute;
+  right: 65%;
+  bottom: 20%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
