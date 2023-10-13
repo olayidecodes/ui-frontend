@@ -16,7 +16,7 @@ function App() {
         <Banner />
         <GoalDonation />
         <Donation />
-        <Donate />
+        {/* <Donate /> */}
         <DonationTable />
         <Gallery />
         <Footer />

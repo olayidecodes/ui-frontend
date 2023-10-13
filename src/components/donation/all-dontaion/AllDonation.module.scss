@@ -1,0 +1,97 @@
+@import '../../../shared/shared';
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  inset: 0;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.popup-container {
+  width: 100%;
+  max-height: 80%;
+  position: fixed;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  padding: toRem(54) toRem(32) toRem(104);
+  overflow: auto;
+
+  @media screen and (min-width: toRem(576)) {
+    padding: toRem(54) toRem(54) toRem(104);
+  }
+  @media screen and (min-width: $md) {
+    padding: toRem(60) toRem(120) toRem(124);
+    width: min-content;
+  }
+  @media screen and (min-width: $two-xl) {
+    padding: toRem(73) toRem(200) toRem(140);
+  }
+}
+
+.open {
+  display: block;
+}
+
+.test-tube__list {
+  list-style: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, min-content);
+  grid-template-rows: auto auto;
+  justify-content: space-between;
+  gap: 5rem 1rem;
+
+  @media screen and (min-width: $md) {
+    gap: 7rem 5rem;
+  }
+  @media screen and (min-width: $two-xl) {
+    gap: 9rem toRem(100);
+  }
+}
+
+.img-container {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.test-tube {
+  @include column-centered();
+  gap: 0.5rem;
+  position: relative;
+  width: min-content;
+
+  @media screen and (min-width: $two-xl) {
+    gap: toRem(32);
+  }
+}
+
+.tube-title {
+  position: absolute;
+  bottom: -1rem;
+  transform: translateY(100%);
+  width: 100%;
+  color: #000;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: toRem(10);
+  font-style: normal;
+  font-weight: 400;
+  line-height: toRem(14);
+
+  @media screen and (min-width: $xl) {
+    width: toRem(167);
+    font-size: toRem(14);
+    line-height: toRem(20);
+    bottom: -2rem;
+  }
+}
