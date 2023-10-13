@@ -3,4 +3,8 @@
 .svg {
   width: toRem(15);
   height: auto;
+
+  @media screen and (min-width: $md) {
+    width: toRem(24);
+  }
 }

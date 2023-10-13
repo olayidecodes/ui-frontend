@@ -4,6 +4,7 @@ $gap: 0.3;
 $width: 43 + 10;
 
 .container {
+  box-sizing: content-box;
   @include centered();
   position: relative;
   width: toRem($width);
@@ -44,11 +45,11 @@ $width: 43 + 10;
 }
 
 .cylindar-fill {
+  width: toRem((16.87 + 5) * 2);
   position: absolute;
   bottom: 0;
-  background-color: #cc3a48;
-  width: toRem(16.87 + 5);
-  height: 50%;
+  transform: translateY(110%);
+  animation: shake 1s linear 2s;
 }
 
 .sphere,
@@ -63,11 +64,10 @@ $width: 43 + 10;
 }
 
 .sphere-fill {
-  width: toRem(43.29 + 5);
-  background-color: #cc3a48;
+  width: toRem((43.29 + 5) * 2);
   position: absolute;
   bottom: 0;
-  height: 100%;
+  animation: shake 2s linear;
 }
 
 .sphere-border {
@@ -111,4 +111,26 @@ $width: 43 + 10;
   bottom: 20%;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(110%) rotateZ(0deg);
+  }
+  25% {
+    transform: translateY(82.5%) rotateZ(-10deg);
+  }
+  50% {
+    transform: translateY(55%) rotateZ(0deg);
+  }
+  75% {
+    transform: translateY(27.5%) rotateZ(10deg);
+  }
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+}
+
+.filled {
+  transform: translateY(0);
 }

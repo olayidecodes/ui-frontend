@@ -1,12 +1,23 @@
 @import '../../shared/shared';
 
 .donation-container {
+  position: relative;
   @include column-flex();
   gap: toRem(39);
   margin: toRem(60) toRem(36) 0;
+  overflow: hidden;
+
+  @media screen and (min-width: $md) {
+    margin: toRem(60) toRem(120) 0;
+  }
+  @media screen and (min-width: $xl) {
+    margin: toRem(60) toRem(217) 0;
+  }
 }
 
 .content {
+  position: relative;
+  z-index: 1;
   @include column-centered();
   gap: toRem(8);
 }
@@ -19,6 +30,13 @@
   font-style: normal;
   font-weight: 900;
   line-height: toRem(19);
+
+  @media screen and (min-width: $md) {
+    font-size: toRem(24);
+    line-height: toRem(60); /* 125% */
+  }
+  @media screen and (min-width: $xl) {
+  }
 }
 
 .desc {
@@ -29,13 +47,28 @@
   font-style: normal;
   font-weight: 400;
   line-height: toRem(19);
+
+  @media screen and (min-width: $md) {
+    font-size: toRem(24);
+    line-height: toRem(30); /* 166.667% */
+  }
+  @media screen and (min-width: $xl) {
+  }
 }
 
 .donation {
-  padding: toRem(67) 0;
+  @include column-centered();
   position: relative;
+  padding: toRem(67) 0;
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
+
+  @media screen and (min-width: $md) {
+    margin: toRem(20) 0 0;
+  }
+  @media screen and (min-width: $xl) {
+    margin: toRem(60) 0 0;
+  }
 }
 
 .img-container {
@@ -45,15 +78,26 @@
     width: 100%;
     height: auto;
   }
+
+  @media screen and (min-width: $md) {
+    max-width: toRem(150);
+  }
+  @media screen and (min-width: $xl) {
+    max-width: toRem(250);
+  }
 }
 
 .test-tube__list {
+  width: 100%;
   list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
-  grid-template-rows: auto;
-  align-items: end;
+  @include display-flex();
+  justify-content: space-between;
+  align-items: flex-end;
   gap: 0 1rem;
+
+  @media screen and (min-width: $md) {
+    gap: 0 4rem;
+  }
 }
 
 .test-tube {
@@ -61,17 +105,37 @@
   @include column-centered();
   gap: toRem(9);
   padding: 0 0 toRem(20);
+  max-width: toRem(150);
+
+  @media screen and (min-width: $md) {
+    gap: toRem(24);
+    max-width: toRem(200);
+  }
+
+  @media screen and (min-width: $xl) {
+    gap: toRem(32);
+    max-width: toRem(300);
+  }
 }
 
 .tube-title {
   position: absolute;
-  bottom: -12%;
+  bottom: -1rem;
+  transform: translateY(100%);
   width: 100%;
   color: #000;
   text-align: center;
   font-family: 'Lato', sans-serif;
-  font-size: toRem(9);
+  font-size: toRem(12);
   font-style: normal;
   font-weight: 400;
-  line-height: toRem(10.132);
+  line-height: toRem(14);
+
+  @media screen and (min-width: $md) {
+    font-size: toRem(16);
+    line-height: toRem(20); /* 250% */
+    bottom: -2rem;
+  }
+  @media screen and (min-width: $xl) {
+  }
 }

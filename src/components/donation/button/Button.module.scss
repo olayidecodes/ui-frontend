@@ -1,6 +1,7 @@
 @import '../../../shared/shared';
 
 .btn {
+  position: relative;
   @include centered();
   gap: toRem(8);
   color: #fff;
@@ -17,4 +18,19 @@
   align-self: center;
   outline: none;
   margin: 5rem auto 0;
+  z-index: 1;
+  cursor: pointer;
+  box-shadow: toRem(0) toRem(18) toRem(43) toRem(4) rgba(35, 76, 235, 0.21);
+
+  @media screen and (min-width: $md) {
+    font-size: toRem(16);
+    line-height: toRem(20); /* 125% */
+    gap: toRem(12);
+    padding: toRem(24) toRem(56);
+    margin: 6rem auto 0;
+  }
+
+  @media screen and (min-width: $xl) {
+    margin: 7rem auto 0;
+  }
 }

@@ -1,11 +1,20 @@
 @import '../../../shared/shared';
 
 .ruler {
-  position: absolute;
-  right: calc(-18 / 43 * 100%);
-
   @include column-flex();
+  position: absolute;
+  right: toRem(-5);
+  transform: translateX(100%);
   justify-content: space-between;
+
+  @media screen and (min-width: $md) {
+    right: toRem(-10);
+    transform: translateX(100%);
+  }
+  @media screen and (min-width: $xl) {
+    right: toRem(-20);
+    transform: translateX(100%);
+  }
 }
 
 .mark,

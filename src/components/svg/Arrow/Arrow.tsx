@@ -10,7 +10,7 @@ const Arrow = () => {
       fill='none'
     >
       <rect width='16' height='9' fill='#524E4E' />
-      <g id='Mobile' clip-path='url(#clip0_566_2)'>
+      <g id='Mobile' clipPath='url(#clip0_566_2)'>
         <rect
           width='375'
           height='3135'
@@ -53,9 +53,9 @@ const Arrow = () => {
           width='194'
           height='122'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'

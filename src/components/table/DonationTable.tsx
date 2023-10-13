@@ -1,46 +1,105 @@
+import { FaSortDown, FaSortUp } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
 import "./style.css"
 
-import React from 'react'
+interface DonationData {
+  position: number;
+  hallName: string;
+  amountDonated: string;
+  numOfDonation: number;
+  step: number;
+}
 
-const DonationTable = () => {
-    const data = [
-        { id: 1, hallName: 'Kenneth Mellanby Hall', amountDonated: "#152,342,345.06", numOfDonation: 305, position: 1 },
-        { id: 2, hallName: 'Queen Elizabeth II Hall', amountDonated: "#152,342,345.06", numOfDonation: 295, position: 2 },
-        { id: 3, hallName: 'Queen Idia Hall', amountDonated: "#152,342,345.06", numOfDonation: 285, position: 3 },
-        { id: 4, hallName: 'Sultan Bello Hall', amountDonated: "#152,342,345.06", numOfDonation: 275, position: 4 },
-        { id: 5, hallName: 'Nnamdi Azikwe Hall', amountDonated: "#152,342,345.06", numOfDonation: 245, position: 5 },
-        { id: 6, hallName: 'Independence Hall', amountDonated: "#152,342,345.06", numOfDonation: 205, position: 6 },
-        { id: 7, hallName: 'Ransome Kuti Hall', amountDonated: "#152,342,345.06", numOfDonation: 195, position: 7 },
-        { id: 8, hallName: 'Obafemi Awolowo Hall', amountDonated: "#152,342,345.06", numOfDonation: 175, position: 8 },
-        { id: 9, hallName: 'Lord Tedder Hall', amountDonated: "#152,342,345.06", numOfDonation: 155, position: 9 },
-        { id: 10, hallName: 'ABH', amountDonated: "#152,342,345.06", numOfDonation: 154, position: 10 },
-        { id: 11, hallName: 'Nnamdi Azikwe Hall', amountDonated: "#152,342,345.06", numOfDonation: 145, position: 11 }
-      ];
+const DonationTable: React.FC = () => {
+  const initialData: DonationData[] = [
+    { position: 1, hallName: 'Kenneth Mellanby Hall', amountDonated: "#152,342,345.06", numOfDonation: 305, step: 1 },
+    { position: 2, hallName: 'Queen Elizabeth II Hall', amountDonated: "#152,342,345.06", numOfDonation: 295, step: 2 },
+    { position: 3, hallName: 'Queen Idia Hall', amountDonated: "#152,342,345.06", numOfDonation: 285, step: 3 },
+    { position: 4, hallName: 'Sultan Bello Hall', amountDonated: "#152,342,345.06", numOfDonation: 275, step: 4 },
+    { position: 5, hallName: 'Nnamdi Azikwe Hall', amountDonated: "#152,342,3455.06", numOfDonation: 245, step: 5 },
+    { position: 6, hallName: 'Independence Hall', amountDonated: "#152,342,345.06", numOfDonation: 205, step: 6 },
+    { position: 7, hallName: 'Ransome Kuti Hall', amountDonated: "#152,342,345.06", numOfDonation: 195, step: 7 },
+    { position: 8, hallName: 'Obafemi Awolowo Hall', amountDonated: "#152,342,345.06", numOfDonation: 175, step: 8 },
+    { position: 9, hallName: 'Lord Tedder Hall', amountDonated: "#152,342,348.06", numOfDonation: 155, step: 9 },
+    { position: 10, hallName: 'ABH', amountDonated: "#152,342,345.06", numOfDonation: 154, step: 10 },
+    { position: 11, hallName: 'Nnamdi Azikwe Hall', amountDonated: "#152,342,347.06", numOfDonation: 145, step: 11 }
+  ];
 
-      return (
-        <table className="custom-table">
-          <thead>
-            <tr>
-              <th>S/N</th>
-              <th>Hall Of Residence</th>
-              <th>Amount Donated</th>
-              <th>Number Of Donations</th>
-              {/* <th>Position</th> */}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row) => (
-              <tr key={row.id}>
-                <td>{row.id}</td>
+  const [sortedData, setSortedData] = useState<DonationData[]>(initialData);
+
+  useEffect(() => {
+    const sorted = [...sortedData].sort((a, b) => parseInt(b.amountDonated.replace(/[^0-9]/g, ''), 10) - parseInt(a.amountDonated.replace(/[^0-9]/g, ''), 10));
+    const updatedData = sorted.map((row, index) => ({ ...row, position: index + 1 }));
+    setSortedData(updatedData);
+  }, [sortedData]);
+
+  useEffect(() => {
+    // Simulate a new donation when there is a change in the amount donated
+    const updatedData = [...sortedData];
+    updatedData.forEach((row, index) => {
+      if (index > 0) {
+        const isGreaterThanPrevious = parseInt(row.amountDonated.replace(/[^0-9]/g, ''), 10) > parseInt(updatedData[index - 1].amountDonated.replace(/[^0-9]/g, ''), 10);
+
+        if (isGreaterThanPrevious) {
+          // Move the hall to the top
+          updatedData.splice(index, 1);
+          updatedData.unshift(row);
+        }
+      }
+    });
+
+    setSortedData(updatedData);
+  }, [sortedData]);
+
+  return (
+    <table className="custom-table">
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Hall Of Residence</th>
+          <th>Amount Donated</th>
+          <th>Number Of Donations</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {sortedData.map((row, index) => {
+          let movementContent = null;
+
+          if (index > 0) {
+            const steps = Math.abs(row.position - sortedData[index - 1].position);
+            movementContent = row.position > sortedData[index - 1].position ? <FaSortUp style={{ color: 'green' }} /> : <FaSortDown style={{ color: 'red' }} />;
+
+            return (
+              <tr key={row.position}>
+                <td>{row.position}</td>
                 <td>{row.hallName}</td>
                 <td>{row.amountDonated}</td>
                 <td>{row.numOfDonation}</td>
-                {/* <td>{row.position}</td> */}
+                <td>
+                  {movementContent && (
+                    <>
+                      {movementContent} {steps} steps
+                    </>
+                  )}
+                </td>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      );
-}
+            );
+          }
 
-export default DonationTable
+          return (
+            <tr key={row.position}>
+              <td>{row.position}</td>
+              <td>{row.hallName}</td>
+              <td>{row.amountDonated}</td>
+              <td>{row.numOfDonation}</td>
+              <td></td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
+
+export default DonationTable;

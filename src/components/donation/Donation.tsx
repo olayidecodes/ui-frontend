@@ -5,8 +5,20 @@ import mellanby from '../../assets/donation/mellanby.png';
 import elizabethII from '../../assets/donation/elizabethII.png';
 import Background from './background/Background';
 import Button from './button/Button';
+import { useEffect, useState } from 'react';
+import AllDonation from './all-dontaion/AllDonation';
+import { responsivity } from './helpers/dontaion.helper';
 
 const Donation = () => {
+  const [width, setWidth] = useState(responsivity(50, 83, 1280));
+  const [openMore, setOpenMore] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setWidth(responsivity(50, 83, 1280));
+    });
+  }, []);
+
   return (
     <div className={classes['donation-container']}>
       <div className={classes['content']}>
@@ -20,14 +32,13 @@ const Donation = () => {
 
       <div className={classes['donation']}>
         <Background />
-
         <ul className={classes['test-tube__list']}>
           <li className={classes['test-tube']}>
             <div className={classes['img-container']}>
               <img width='50' height='50' src={idia} alt='' />
             </div>
 
-            <TestTube width={50} color='#3ACC86' />
+            <TestTube value={10} total={100} width={width} color='#3ACC86' />
 
             <div className={classes['tube-title']}>Queen Idia hall</div>
           </li>
@@ -37,7 +48,12 @@ const Donation = () => {
               <img width='50' height='50' src={mellanby} alt='' />
             </div>
 
-            <TestTube width={57} color='#cc3a48' />
+            <TestTube
+              value={70}
+              total={100}
+              width={width + width * 0.1}
+              color='#cc3a48'
+            />
 
             <div className={classes['tube-title']}>Kenneth Mellanby Hall</div>
           </li>
@@ -47,14 +63,22 @@ const Donation = () => {
               <img width='50' height='50' src={elizabethII} alt='' />
             </div>
 
-            <TestTube width={50} color='#A63ACC' />
+            <TestTube value={10} total={100} width={width} color='#A63ACC' />
 
             <div className={classes['tube-title']}>Queen Elizabeth II hall</div>
           </li>
         </ul>
 
-        <Button />
+        <Button click={setOpenMore} />
       </div>
+
+      {openMore && (
+        <AllDonation
+          onclose={() => {
+            setOpenMore(false);
+          }}
+        />
+      )}
     </div>
   );
 };
