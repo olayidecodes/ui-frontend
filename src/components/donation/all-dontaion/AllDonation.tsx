@@ -37,7 +37,7 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
               <img width='50' height='50' src={elizabethII} alt='' />
             </div>
 
-            <TestTube value={10} total={100} width={width} color='#A63ACC' />
+            <TestTube value={80} total={100} width={width} color='#A63ACC' />
 
             <div className={classes['tube-title']}>Queen Elizabeth II hall</div>
           </li>
@@ -47,7 +47,7 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
               <img width='50' height='50' src={mellanby} alt='' />
             </div>
 
-            <TestTube value={20} total={100} width={width} color='#CC3A48' />
+            <TestTube value={95} total={100} width={width} color='#CC3A48' />
 
             <div className={classes['tube-title']}>Kenneth Mellanby Hall</div>
           </li>
@@ -57,7 +57,7 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
               <img width='50' height='50' src={idia} alt='' />
             </div>
 
-            <TestTube value={30} total={100} width={width} color='#3ACC86' />
+            <TestTube value={85} total={100} width={width} color='#3ACC86' />
 
             <div className={classes['tube-title']}>Queen Idia hall</div>
           </li>
@@ -107,7 +107,7 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
               <img width='50' height='50' src={xander} alt='' />
             </div>
 
-            <TestTube value={100} total={100} width={width} color='#CC3A92' />
+            <TestTube value={60} total={100} width={width} color='#CC3A92' />
 
             <div className={classes['tube-title']}>Alexander brown hall</div>
           </li>

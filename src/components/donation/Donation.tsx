@@ -38,7 +38,7 @@ const Donation = () => {
               <img width='50' height='50' src={idia} alt='' />
             </div>
 
-            <TestTube value={10} total={100} width={width} color='#3ACC86' />
+            <TestTube value={85} total={100} width={width} color='#3ACC86' />
 
             <div className={classes['tube-title']}>Queen Idia hall</div>
           </li>
@@ -49,7 +49,7 @@ const Donation = () => {
             </div>
 
             <TestTube
-              value={70}
+              value={95}
               total={100}
               width={width + width * 0.1}
               color='#cc3a48'
@@ -63,7 +63,7 @@ const Donation = () => {
               <img width='50' height='50' src={elizabethII} alt='' />
             </div>
 
-            <TestTube value={10} total={100} width={width} color='#A63ACC' />
+            <TestTube value={80} total={100} width={width} color='#A63ACC' />
 
             <div className={classes['tube-title']}>Queen Elizabeth II hall</div>
           </li>
