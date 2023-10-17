@@ -15,7 +15,8 @@ const TestTube = (props: {
 
   const [sphereHeight, setSphereHeight] = useState(0);
   const [cylindarHeight, setCylindarHeight] = useState(0);
-  const [filled, setFilled] = useState(false);
+  const [filled, setFilled] = useState(true);
+  const [sphereFilled, setSphereFilled] = useState(true);
 
   const sphere: number = (total * 2) / 3;
   const cylindar: number = total / 3;
@@ -23,21 +24,31 @@ const TestTube = (props: {
   useEffect(() => {
     let timeout: number;
 
-    if (total > 0 && value > 0 && value <= total && !filled) {
+    if (total > 0 && value > 0 && value <= total && filled) {
       if (value > sphere) {
         setSphereHeight(100);
         setCylindarHeight(((value - sphere) / cylindar) * 100);
+        setFilled(() => {
+          return false;
+        });
 
-        timeout = setTimeout(() => {
-          setFilled(() => true);
-        }, 2999);
+        setTimeout(() => {
+          setFilled(() => {
+            return true;
+          });
+        }, 4000);
       } else {
         setSphereHeight((value / sphere) * 100);
       }
+      setSphereFilled(true);
+
+      setTimeout(() => {
+        setSphereFilled(false);
+      }, 2000);
     }
 
     return () => clearTimeout(timeout);
-  }, [total, value, cylindar, sphere, filled]);
+  }, [value, cylindar, sphere]);
 
   return (
     <div
@@ -57,7 +68,7 @@ const TestTube = (props: {
         <div className={classes['cylindar']}>
           <div
             className={`${classes['cylindar-fill']} ${
-              filled ? classes['filled'] : ''
+              filled ? '' : classes['filled']
             }`}
             style={{ backgroundColor: color, height: `${cylindarHeight}%` }}
           ></div>
@@ -70,7 +81,9 @@ const TestTube = (props: {
 
         <div className={classes['sphere']}>
           <div
-            className={classes['sphere-fill']}
+            className={`${classes['sphere-fill']} ${
+              sphereFilled ? classes['sphere-animate'] : ''
+            }`}
             style={{ backgroundColor: color, height: `${sphereHeight}%` }}
           ></div>
           <div className={`${classes['sphere']} ${classes['sphere-shadow']}`}>

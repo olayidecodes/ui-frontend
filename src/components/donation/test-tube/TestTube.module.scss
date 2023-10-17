@@ -48,8 +48,6 @@ $width: 43 + 10;
   width: toRem((16.87 + 5) * 2);
   position: absolute;
   bottom: 0;
-  transform: translateY(110%);
-  animation: shake 1s linear 2s;
 }
 
 .sphere,
@@ -115,16 +113,16 @@ $width: 43 + 10;
 
 @keyframes shake {
   0% {
-    transform: translateY(110%) rotateZ(0deg);
+    transform: translateY(100%) rotateZ(0deg);
   }
   25% {
-    transform: translateY(82.5%) rotateZ(-10deg);
+    transform: translateY(75%) rotateZ(-10deg);
   }
   50% {
-    transform: translateY(55%) rotateZ(0deg);
+    transform: translateY(50%) rotateZ(0deg);
   }
   75% {
-    transform: translateY(27.5%) rotateZ(10deg);
+    transform: translateY(25%) rotateZ(10deg);
   }
   100% {
     transform: translateY(0) rotateZ(0deg);
@@ -132,5 +130,10 @@ $width: 43 + 10;
 }
 
 .filled {
-  transform: translateY(0);
+  transform: translateY(100%);
+  animation: shake 2s linear 2s;
+}
+
+.sphere-animate {
+  animation: shake 2s linear;
 }

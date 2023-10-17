@@ -34,16 +34,6 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
         <ul className={classes['test-tube__list']}>
           <li className={classes['test-tube']}>
             <div className={classes['img-container']}>
-              <img width='50' height='50' src={elizabethII} alt='' />
-            </div>
-
-            <TestTube value={80} total={100} width={width} color='#A63ACC' />
-
-            <div className={classes['tube-title']}>Queen Elizabeth II hall</div>
-          </li>
-
-          <li className={classes['test-tube']}>
-            <div className={classes['img-container']}>
               <img width='50' height='50' src={mellanby} alt='' />
             </div>
 
@@ -64,10 +54,20 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
 
           <li className={classes['test-tube']}>
             <div className={classes['img-container']}>
+              <img width='50' height='50' src={elizabethII} alt='' />
+            </div>
+
+            <TestTube value={75} total={100} width={width} color='#A63ACC' />
+
+            <div className={classes['tube-title']}>Queen Elizabeth II hall</div>
+          </li>
+
+          <li className={classes['test-tube']}>
+            <div className={classes['img-container']}>
               <img width='50' height='50' src={tedder} alt='' />
             </div>
 
-            <TestTube value={40} total={100} width={width} color='#EFFF3C' />
+            <TestTube value={65} total={100} width={width} color='#EFFF3C' />
 
             <div className={classes['tube-title']}>Tedder Hall</div>
           </li>
@@ -77,7 +77,7 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
               <img width='50' height='50' src={zik} alt='' />
             </div>
 
-            <TestTube value={50} total={100} width={width} color='#5C3DD7' />
+            <TestTube value={60} total={100} width={width} color='#5C3DD7' />
 
             <div className={classes['tube-title']}>Nnamdi Azikiwe Hall</div>
           </li>
@@ -97,7 +97,7 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
               <img width='50' height='50' src={awo} alt='' />
             </div>
 
-            <TestTube value={70} total={100} width={width} color='#3ACCBA' />
+            <TestTube value={55} total={100} width={width} color='#3ACCBA' />
 
             <div className={classes['tube-title']}>Obafemi Awolowo Hall</div>
           </li>
@@ -107,7 +107,7 @@ const AllDonation = (props: { onclose: (val: boolean) => void }) => {
               <img width='50' height='50' src={xander} alt='' />
             </div>
 
-            <TestTube value={60} total={100} width={width} color='#CC3A92' />
+            <TestTube value={50} total={100} width={width} color='#CC3A92' />
 
             <div className={classes['tube-title']}>Alexander brown hall</div>
           </li>

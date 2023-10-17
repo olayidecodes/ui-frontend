@@ -12,11 +12,26 @@ import { responsivity } from './helpers/dontaion.helper';
 const Donation = () => {
   const [width, setWidth] = useState(responsivity(50, 83, 1280));
   const [openMore, setOpenMore] = useState(false);
+  // const [values, setValues] = useState([0,0,0])
 
   useEffect(() => {
     window.addEventListener('resize', () => {
       setWidth(responsivity(50, 83, 1280));
     });
+
+    // const tubeList = document.querySelector(`.${classes['test-tube__list']}`)!;
+    // const observer = new IntersectionObserver(
+    //   (entries) => {
+    //     entries.forEach((entry) => {
+    //       if (entry.isIntersecting) {
+    //         SetValues([95, 85, 80]);
+    //       }
+    //     });
+    //   },
+    //   { threshold: [0.33] }
+    // );
+
+    // observer.observe(tubeList)
   }, []);
 
   return (
@@ -63,7 +78,7 @@ const Donation = () => {
               <img width='50' height='50' src={elizabethII} alt='' />
             </div>
 
-            <TestTube value={80} total={100} width={width} color='#A63ACC' />
+            <TestTube value={75} total={100} width={width} color='#A63ACC' />
 
             <div className={classes['tube-title']}>Queen Elizabeth II hall</div>
           </li>
