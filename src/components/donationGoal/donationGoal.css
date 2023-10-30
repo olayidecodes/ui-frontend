@@ -77,12 +77,13 @@
     height: 100%;
     border-radius: 10rem;
     background-color: crimson;
-
-    /* width: 0;
-    height: 30px;
-    background-color: crimson;
-    border-radius: 5px; */
-    animation: progressAnimation linear infinite;
+    /* animation: progressAnimation linear infinite; */
+    /* animation: progressAnimation linear forwards; */
+    animation-name: progressAnimation;
+    animation-duration: 5s; /* Adjust the animation duration here */
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
 }
 
 .circle1{
@@ -107,7 +108,7 @@
   0% {
     width: 0;
   }
-  100% {
-    width: 100%;
+  to {
+    width: var(--percentRaised, 0%);
   }
 }
