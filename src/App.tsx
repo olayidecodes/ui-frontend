@@ -14,7 +14,7 @@ function App() {
       <div className='main__container'>
         <Navbar />
         <Banner />
-        <GoalDonation />
+        <GoalDonation goal={"$200,000,000.00"} currentAmount={"$100,000,000.00"}/>
         <Donation />
         {/* <Donate /> */}
         <DonationTable />

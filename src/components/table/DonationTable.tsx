@@ -12,94 +12,87 @@ interface DonationData {
 
 const DonationTable: React.FC = () => {
   const initialData: DonationData[] = [
-    { position: 1, hallName: 'Kenneth Mellanby Hall', amountDonated: "#152,342,345.06", numOfDonation: 305, step: 1 },
-    { position: 2, hallName: 'Queen Elizabeth II Hall', amountDonated: "#152,342,345.06", numOfDonation: 295, step: 2 },
-    { position: 3, hallName: 'Queen Idia Hall', amountDonated: "#152,342,345.06", numOfDonation: 285, step: 3 },
-    { position: 4, hallName: 'Sultan Bello Hall', amountDonated: "#152,342,345.06", numOfDonation: 275, step: 4 },
-    { position: 5, hallName: 'Nnamdi Azikwe Hall', amountDonated: "#152,342,3455.06", numOfDonation: 245, step: 5 },
-    { position: 6, hallName: 'Independence Hall', amountDonated: "#152,342,345.06", numOfDonation: 205, step: 6 },
-    { position: 7, hallName: 'Ransome Kuti Hall', amountDonated: "#152,342,345.06", numOfDonation: 195, step: 7 },
-    { position: 8, hallName: 'Obafemi Awolowo Hall', amountDonated: "#152,342,345.06", numOfDonation: 175, step: 8 },
-    { position: 9, hallName: 'Lord Tedder Hall', amountDonated: "#152,342,348.06", numOfDonation: 155, step: 9 },
-    { position: 10, hallName: 'ABH', amountDonated: "#152,342,345.06", numOfDonation: 154, step: 10 },
-    { position: 11, hallName: 'Nnamdi Azikwe Hall', amountDonated: "#152,342,347.06", numOfDonation: 145, step: 11 }
+    { position: 1, hallName: 'Kenneth Mellanby Hall', amountDonated: "₦152,342,345.06", numOfDonation: 305, step: 0 },
+    { position: 2, hallName: 'Queen Elizabeth II Hall', amountDonated: "₦152,342,345.06", numOfDonation: 295, step: 0 },
+    { position: 3, hallName: 'Queen Idia Hall', amountDonated: "₦152,342,345.06", numOfDonation: 285, step: 0 },
+    { position: 4, hallName: 'Sultan Bello Hall', amountDonated: "₦152,342,345.06", numOfDonation: 275, step: 0 },
+    { position: 5, hallName: 'Nnamdi Azikwe Hall', amountDonated: "₦152,342,345.06", numOfDonation: 245, step: 0 },
+    { position: 6, hallName: 'Independence Hall', amountDonated: "₦152,342,345.06", numOfDonation: 205, step: 0 },
+    { position: 7, hallName: 'Ransome Kuti Hall', amountDonated: "₦152,342,345.06", numOfDonation: 195, step: 0 },
+    { position: 8, hallName: 'Obafemi Awolowo Hall', amountDonated: "₦152,342,345.06", numOfDonation: 175, step: 0 },
+    { position: 9, hallName: 'Lord Tedder Hall', amountDonated: "₦152,342,345.06", numOfDonation: 155, step: 0 },
+    { position: 10, hallName: 'Alexander Brown Hall', amountDonated: "₦152,342,345.06", numOfDonation: 154, step: 0 },
+    { position: 11, hallName: 'Nnamdi Azikwe Hall2', amountDonated: "₦152,342,345.06", numOfDonation: 145, step: 0 }
   ];
+
 
   const [sortedData, setSortedData] = useState<DonationData[]>(initialData);
 
   useEffect(() => {
-    const sorted = [...sortedData].sort((a, b) => parseInt(b.amountDonated.replace(/[^0-9]/g, ''), 10) - parseInt(a.amountDonated.replace(/[^0-9]/g, ''), 10));
-    const updatedData = sorted.map((row, index) => ({ ...row, position: index + 1 }));
-    setSortedData(updatedData);
-  }, [sortedData]);
+    // Sort data by amount donated in descending order
+    const sorted = [...sortedData].sort((a, b) =>
+      parseInt(b.amountDonated.replace(/[^0-9]/g, ''), 10) - parseInt(a.amountDonated.replace(/[^0-9]/g, ''), 10)
+    );
 
-  useEffect(() => {
-    // Simulate a new donation when there is a change in the amount donated
-    const updatedData = [...sortedData];
-    updatedData.forEach((row, index) => {
+    // Update positions and steps
+    const updatedData = sorted.map((row, index) => {
+      let steps = 0;
       if (index > 0) {
-        const isGreaterThanPrevious = parseInt(row.amountDonated.replace(/[^0-9]/g, ''), 10) > parseInt(updatedData[index - 1].amountDonated.replace(/[^0-9]/g, ''), 10);
-
-        if (isGreaterThanPrevious) {
-          // Move the hall to the top
-          updatedData.splice(index, 1);
-          updatedData.unshift(row);
+        if (parseInt(row.amountDonated.replace(/[^0-9]/g, ''), 10) === parseInt(sortedData[index - 1].amountDonated.replace(/[^0-9]/g, ''), 10)) {
+          steps = sortedData[index - 1].step;
+        } else {
+          steps = sortedData[index - 1].step + 1;
         }
+      } else {
+        steps = 0; // For the first row, steps should be 0
       }
+      return { ...row, position: index + 1, step: steps };
     });
 
     setSortedData(updatedData);
   }, [sortedData]);
 
   return (
-    <table className="custom-table">
-      <thead>
-        <tr>
-          <th>Position</th>
-          <th>Hall Of Residence</th>
-          <th>Amount Donated</th>
-          <th>Number Of Donations</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
+    <div className="tableContainer">
+      <ul className="responsive-table">
+        <li className="table-header">
+          <div className="col col-1">Position</div>
+          <div className="col col-2">Hall Of Residence</div>
+          <div className="col col-3">Amount Donated</div>
+          <div className="col col-3">Number Of Donations</div>
+          <div className="col col-4">Steps</div>
+        </li>
         {sortedData.map((row, index) => {
           let movementContent = null;
-
+          let steps = 0;
+    
           if (index > 0) {
-            const steps = Math.abs(row.position - sortedData[index - 1].position);
-            movementContent = row.position > sortedData[index - 1].position ? <FaSortUp style={{ color: 'green' }} /> : <FaSortDown style={{ color: 'red' }} />;
-
-            return (
-              <tr key={row.position}>
-                <td>{row.position}</td>
-                <td>{row.hallName}</td>
-                <td>{row.amountDonated}</td>
-                <td>{row.numOfDonation}</td>
-                <td>
-                  {movementContent && (
-                    <>
-                      {movementContent} {steps} steps
-                    </>
-                  )}
-                </td>
-              </tr>
-            );
+            steps = row.step - sortedData[index - 1].step;
+            if (steps > 0) {
+              movementContent = <FaSortUp style={{ color: 'green' }} />;
+            } else if (steps < 0) {
+              movementContent = <FaSortDown style={{ color: 'red' }} />;
+            }
           }
-
+    
           return (
-            <tr key={row.position}>
-              <td>{row.position}</td>
-              <td>{row.hallName}</td>
-              <td>{row.amountDonated}</td>
-              <td>{row.numOfDonation}</td>
-              <td></td>
-            </tr>
+            <li className="table-row" key={row.position}>
+              <div className="col col-1" data-label="Job Id">{row.position}</div>
+              <div className="col col-2" data-label="Customer Name">{row.hallName}</div>
+              <div className="col col-3" data-label="Amount">{row.amountDonated}</div>
+              <div className="col col-4" data-label="Payment Status">{row.numOfDonation}</div>
+              <div className="col col-5" data-label="Payment Status">{movementContent && (
+                <>
+                  {movementContent} {Math.abs(steps)} step{Math.abs(steps) !== 1 ? 's' : ''}
+                </>
+              )}
+              </div>
+            </li>
           );
         })}
-      </tbody>
-    </table>
+      </ul>
+    </div>
   );
-};
+}
 
 export default DonationTable;
