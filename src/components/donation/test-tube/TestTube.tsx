@@ -32,15 +32,6 @@ const TestTube = (props: {
           setCylindarHeight(((value - sphere) / cylindar) * 100);
           setFilled(true);
         }, 2000);
-        // setFilled(() => {
-        //   return false;
-        // });
-
-        // setTimeout(() => {
-        //   setFilled(() => {
-        //     return true;
-        //   });
-        // }, 4000);
       } else {
         setSphereHeight((value / sphere) * 100);
       }

@@ -4,7 +4,7 @@ import classes from './Ruler.module.scss';
 const Ruler = (props: { width: number }) => {
   const marks: ReactElement[] = [];
 
-  for (let i = 0; i < 56; i++) {
+  for (let i = 0; i <= 40; i++) {
     if (i % 5 > 0)
       marks.push(
         <div
@@ -19,7 +19,13 @@ const Ruler = (props: { width: number }) => {
           key={i}
           className={classes['thick-mark']}
           style={{ height: `${(props.width * 2) / 86}px` }}
-        ></div>
+        >
+          {!(i % 20) ? (
+            <div className={classes['mark-label']}>${40 - i} million </div>
+          ) : (
+            ''
+          )}
+        </div>
       );
   }
 

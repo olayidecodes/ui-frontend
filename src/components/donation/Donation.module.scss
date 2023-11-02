@@ -109,6 +109,7 @@
 
   @media screen and (min-width: $md) {
     gap: toRem(24);
+    align-items: flex-start;
     max-width: toRem(200);
   }
 
