@@ -18,20 +18,6 @@ const Donation = () => {
     window.addEventListener('resize', () => {
       setWidth(responsivity(50, 83, 1280));
     });
-
-    // const tubeList = document.querySelector(`.${classes['test-tube__list']}`)!;
-    // const observer = new IntersectionObserver(
-    //   (entries) => {
-    //     entries.forEach((entry) => {
-    //       if (entry.isIntersecting) {
-    //         SetValues([95, 85, 80]);
-    //       }
-    //     });
-    //   },
-    //   { threshold: [0.33] }
-    // );
-
-    // observer.observe(tubeList)
   }, []);
 
   return (

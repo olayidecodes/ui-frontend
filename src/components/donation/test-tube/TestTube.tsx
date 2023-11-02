@@ -15,7 +15,7 @@ const TestTube = (props: {
 
   const [sphereHeight, setSphereHeight] = useState(0);
   const [cylindarHeight, setCylindarHeight] = useState(0);
-  const [filled, setFilled] = useState(true);
+  const [filled, setFilled] = useState(false);
   const [sphereFilled, setSphereFilled] = useState(true);
 
   const sphere: number = (total * 2) / 3;
@@ -24,27 +24,27 @@ const TestTube = (props: {
   useEffect(() => {
     let timeout: number;
 
-    if (total > 0 && value > 0 && value <= total && filled) {
+    if (total > 0 && value > 0 && value <= total) {
       if (value > sphere) {
-        setSphereHeight(100);
-        setCylindarHeight(((value - sphere) / cylindar) * 100);
-        setFilled(() => {
-          return false;
-        });
+        setSphereHeight(105);
 
         setTimeout(() => {
-          setFilled(() => {
-            return true;
-          });
-        }, 4000);
+          setCylindarHeight(((value - sphere) / cylindar) * 100);
+          setFilled(true);
+        }, 2000);
+        // setFilled(() => {
+        //   return false;
+        // });
+
+        // setTimeout(() => {
+        //   setFilled(() => {
+        //     return true;
+        //   });
+        // }, 4000);
       } else {
         setSphereHeight((value / sphere) * 100);
       }
       setSphereFilled(true);
-
-      setTimeout(() => {
-        setSphereFilled(false);
-      }, 2000);
     }
 
     return () => clearTimeout(timeout);
@@ -68,10 +68,12 @@ const TestTube = (props: {
         <div className={classes['cylindar']}>
           <div
             className={`${classes['cylindar-fill']} ${
-              filled ? '' : classes['filled']
+              filled ? classes['filled'] : ''
             }`}
             style={{ backgroundColor: color, height: `${cylindarHeight}%` }}
-          ></div>
+          >
+            <div className={classes['wavy-cylindar']}></div>
+          </div>
           <div
             className={`${classes['cylindar']} ${classes['cylindar-shadow']}`}
           >
@@ -85,7 +87,9 @@ const TestTube = (props: {
               sphereFilled ? classes['sphere-animate'] : ''
             }`}
             style={{ backgroundColor: color, height: `${sphereHeight}%` }}
-          ></div>
+          >
+            <div className={classes['wavy-sphere']}></div>
+          </div>
           <div className={`${classes['sphere']} ${classes['sphere-shadow']}`}>
             <div className={classes['circle-shadow']}></div>
             <Curved />

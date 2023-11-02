@@ -48,6 +48,8 @@ $width: 43 + 10;
   width: toRem((16.87 + 5) * 2);
   position: absolute;
   bottom: 0;
+  transform: translateY(100%);
+  transition: all 2s linear;
 }
 
 .sphere,
@@ -62,10 +64,11 @@ $width: 43 + 10;
 }
 
 .sphere-fill {
-  width: toRem((43.29 + 5) * 2);
+  width: 100%;
   position: absolute;
   bottom: 0;
-  animation: shake 2s linear;
+  transform: translateY(100%);
+  transition: all 2s linear;
 }
 
 .sphere-border {
@@ -111,29 +114,46 @@ $width: 43 + 10;
   border-radius: 50%;
 }
 
-@keyframes shake {
-  0% {
-    transform: translateY(100%) rotateZ(0deg);
-  }
-  25% {
-    transform: translateY(75%) rotateZ(-10deg);
-  }
-  50% {
-    transform: translateY(50%) rotateZ(0deg);
-  }
-  75% {
-    transform: translateY(25%) rotateZ(10deg);
-  }
-  100% {
-    transform: translateY(0) rotateZ(0deg);
-  }
+.wavy-sphere {
+  position: absolute;
+  width: toRem(43.29 * 3);
+  height: toRem(43.29 * 3);
+  top: 0;
+  left: 50%;
+  background-color: #e9f4f3;
+  transform: translate(-50%, -100%);
+  border-radius: 45%;
+  animation: animate 10s linear infinite;
+}
+
+.wavy-cylindar {
+  width: toRem(16.87 * 2);
+  height: toRem(16.87 * 1.75);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: #e9f4f3;
+  transform: translate(-50%, -100%);
+  border-radius: 45%;
+  animation: animate 10s linear infinite;
 }
 
 .filled {
-  transform: translateY(100%);
-  animation: shake 2s linear 2s;
+  transform: translateY(0);
 }
 
 .sphere-animate {
-  animation: shake 2s linear;
+  transform: translateY(0);
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -100%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
 }
