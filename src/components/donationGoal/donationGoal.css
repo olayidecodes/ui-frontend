@@ -71,19 +71,26 @@
     background-color: #ffffff;
 }
 
-.progress-bar {
+.redfill {
+    height: 6rem;
+    width: 100%;
+    border-radius: 10rem;
+    margin: 3rem auto;
+    background-color: #fff;
     position: relative;
+}
+
+.progress-bar {
+    position: absolute;
     display: block;
     height: 100%;
     border-radius: 10rem;
     background-color: crimson;
-    /* animation: progressAnimation linear infinite; */
-    /* animation: progressAnimation linear forwards; */
     animation-name: progressAnimation;
     animation-duration: 5s; /* Adjust the animation duration here */
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
+    /* animation-iteration-count: infinite; */
 }
 
 .circle1{
@@ -106,9 +113,55 @@
 
 @keyframes progressAnimation {
   0% {
-    width: 0;
+    width: 0%
   }
   to {
     width: var(--percentRaised, 0%);
+  }
+}
+
+/* Add bobbing animation to circles */
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.circle1,
+.circle2,
+.circle3 {
+  position: absolute;
+  bottom: 0;
+  transform-origin: center bottom;
+  animation: bob 1s infinite ease-in-out alternate;
+}
+
+.circle1 {
+  left: 20rem;
+}
+
+.circle2 {
+  left: 17rem;
+}
+
+.circle3 {
+  left: 13rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .progress-container,
+  .redfill {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .progress-container,
+  .redfill {
+    width: 100%;
   }
 }
